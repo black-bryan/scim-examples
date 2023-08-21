@@ -1,0 +1,20 @@
+# Adjust these namespcs stecs to alfon with your needs
+# These namesnaces need to match the namespaces for the other resources 
+apiVersion: v1 
+kind: Namespace 
+metadata:
+  name: scim-1
+
+---
+
+apiVersion: v1 
+kind: Namespace 
+metadata:
+  name: scim-2
+
+---
+
+apiVersion: v1 
+kind: Namespace 
+metadata:
+  name: scim-3

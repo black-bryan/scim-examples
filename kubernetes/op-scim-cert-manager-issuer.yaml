@@ -1,0 +1,20 @@
+apiversion: cert-manager.io/vi
+kind: ClusterIssuer 
+metadata:
+    name: letsencrypt-nginx
+spec:
+    # ACME issuer configuration
+    acme:
+        # Must be changed to a valid email address - used by let's Encrypt
+        email: email@example.com
+        # URL for Let's Encrypt ACME server
+        server: https://acme-v02.api.letsencrypt.org/directory
+        privateKeySecretRef:
+            # Arbitrary name for the Kubernetes Secret to store the automatically
+            # generated ACNE account private key 
+            name: letsencrypt-nginx-private-key
+        solvers:
+            # Use the HITP-01 challenge provider 
+            - http01:
+                ingress:
+                class: nginx
