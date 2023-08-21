@@ -1,4 +1,4 @@
-apiversion: cert-manager.io/vi
+apiVersion: cert-manager.io/v1
 kind: ClusterIssuer 
 metadata:
     name: letsencrypt-nginx
@@ -17,4 +17,4 @@ spec:
             # Use the HITP-01 challenge provider 
             - http01:
                 ingress:
-                class: nginx
+                    name: op-scim-ingress
