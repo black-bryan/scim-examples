@@ -295,6 +295,16 @@ kubectl apply --filename=./op-scim-service.yaml
 
 In this configuration, 1Password SCIM Bridge will listen for unencrypted traffic on the `http` port of the Pod.
 
+To use Cert-Manager to handled certificate management using Let's Encrypt as the cert provider, add to your cluster using: 
+```
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.14.4/cert-manager.yaml
+```
+
+Install the NGINX Ingress controller for Azure if needed: 
+```
+ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.10.0/deploy/static/provider/cloud/deploy.yaml
+```
+
 #### Use your own certificate
 
 Alternatively, you can create a TLS Secret containing your key and certificate files, which can then be used by your SCIM bridge. This will also disable Let's Encrypt functionality.
