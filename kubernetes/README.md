@@ -298,7 +298,7 @@ Addityionally modify line 8 to state `type: ClusterIP` in your op-scim-service.y
 If SCIM bridge has already been deployed, apply the amended Service manifest:
 
 ```sh
-kubectl apply --filename=./op-scim-service.yaml
+kubectl apply --filename=./
 ```
 
 In this configuration, 1Password SCIM Bridge will listen for unencrypted traffic on the `http` port of the Pod.
