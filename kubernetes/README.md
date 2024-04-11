@@ -287,7 +287,15 @@ You can terminate TLS traffic on a public-facing load balancer or reverse proxy,
 kubectl set env deploy/op-scim-bridge OP_TLS_DOMAIN=""
 ```
 
-Modify [`op-scim-service.yaml`](./op-scim-service.yaml) to use the alternate `http` port for the Service as noted within the manifest. Traffic from your TLS endpoint should be directed to this port (80, by default). If SCIM bridge has already been deployed, apply the amended Service manifest:
+Modify [`op-scim-issuer.yaml`](./op-scim-issuer.yaml) to have your valid email address for certicate creation.
+
+Modify [`op-scim-ingress.yaml`](./op-scim-ingress.yaml) to have your valid SCIM bridge address for the host in both lines 18 and line 30.
+
+Modify [`op-scim-service.yaml`](./op-scim-service.yaml) to use the alternate `http` port for the Service as noted within the manifest. Traffic from your TLS endpoint should be directed to this port (80, by default). 
+
+Addityionally modify line 8 to state `type: ClusterIP` in your op-scim-service.yaml.
+
+If SCIM bridge has already been deployed, apply the amended Service manifest:
 
 ```sh
 kubectl apply --filename=./op-scim-service.yaml
